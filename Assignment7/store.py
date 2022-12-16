@@ -179,5 +179,5 @@ while True:
         write_db()
         exit(0)
     else:
-        print(colored("*NOTICE: your choosen number should be between 1 and 7.","red"))
+        print(colored("*NOTICE: your choosen number should be between 1 and 8.","red"))
 
