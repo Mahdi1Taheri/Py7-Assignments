@@ -9,7 +9,7 @@ markup = types.ReplyKeyboardMarkup(row_width=2)
 itembtn1 = types.KeyboardButton('/New_Game')
 markup.add(itembtn1)
 
-bot = telebot.TeleBot("5855476837:AAFic6w9zD1XPESnfDCoUyNQiBo5fdRQHRg", parse_mode=None)
+bot = telebot.TeleBot(<TOKEN>, parse_mode=None)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 
