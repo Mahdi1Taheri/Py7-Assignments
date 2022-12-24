@@ -49,11 +49,11 @@ def guess(message):
 		m = bot.send_message(message.chat.id,"please enter a number not a string")
 	
 	elif int(message.text) > cpu:
-		m = bot.send_message(message.chat.id,"guess a smaller number⬆")
+		m = bot.send_message(message.chat.id,"guess a smaller number⬇")
 		bot.register_next_step_handler(m, guess )
 	 
 	elif int(message.text) < cpu:
-		m = bot.send_message(message.chat.id,"guess a bigger number⬇")
+		m = bot.send_message(message.chat.id,"guess a bigger number⬆")
 		bot.register_next_step_handler(m, guess )
 	 
 	elif int(message.text) == cpu:
