@@ -5,7 +5,7 @@ import re
 def read_from_file():
     global word_bank
 
-    f = open("Assignment8/words.txt",'r')
+    f = open("Assignment08/words.txt",'r')
     temp = f.read().split("\n")
     word_bank = []
 
