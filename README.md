@@ -1,5 +1,4 @@
-# Py7-simple-projects-
-
+# Py7-Assignments
 => All codes are written in Python.
 
 Pylearn7 course projects and exercises.
