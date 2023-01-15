@@ -2,16 +2,19 @@ import random
 import arcade
 
 
-
 class Spaceship(arcade.Sprite):
-    def __init__(self,game,name):
+    def __init__(self,w,name):
         super().__init__("Assignment13\pngwing.com (2).png")
-        self.center_x = game.width // 2
+        self.center_x = w // 2
         self.center_y = 100
+        self.change_x = 0
+        self.change_y = 0
         self.width = 140
         self.height = 140
         self.name = name
         self.speed = 8
+        self.game_width = w
+        self.bullet_list = []
 
     def move(self):
         if self.change_x == -1:
@@ -23,9 +26,8 @@ class Spaceship(arcade.Sprite):
                 self.center_x += self.speed
 
     def fire(self):
-        new_bullet = Bullet()
+        new_bullet = Bullet(self)
         self.bullet_list.append(new_bullet)
-
 
 class Bullet(arcade.Sprite):
     def __init__(self,host):
@@ -35,6 +37,9 @@ class Bullet(arcade.Sprite):
         self.speed = 3
         self.change_x = 0
         self.change_y = 1
+    
+    def move(self):
+        self.center_y += self.speed
 
 class Enemy(arcade.Sprite):
     def __init__(self,w,h):
@@ -46,13 +51,16 @@ class Enemy(arcade.Sprite):
         self.angle = 0
         self.speed = 2
 
+    def move(self):
+        self.center_y -= self.speed
+
 class Game(arcade.Window):
     def __init__(self):
         super().__init__(width=1000, height=600,title="Star Wars")
         arcade.set_background_color(arcade.color.BLACK)
         self.background = arcade.load_texture("Assignment13/107763.jpg")
-        self.me = Spaceship(self,"Mahdi")
-        self.enemies = Enemy(self.width,self.height)
+        self.me = Spaceship(self.width,"Mahdi")
+        self.enemies = []
     
     # showing
     def on_draw(self):
@@ -62,17 +70,22 @@ class Game(arcade.Window):
 
         for enemy in self.enemies:
             enemy.draw()
+
+        for bullet in self.me.bullet_list:
+            bullet.draw()
         arcade.finish_render()
 
     def on_key_press(self, symbol: int, modifiers: int):
         print("a key has been pressed!")
         
         if symbol == arcade.key.A or symbol == arcade.key.LEFT:
-            self.me.move("L")
+            self.me.change_x = -1
         elif symbol == arcade.key.D or symbol == arcade.key.RIGHT:
-            self.me.move("R")
+            self.me.change_x = 1
+        elif symbol == arcade.key.DOWN:
+            self.me.change_x = 0
         elif symbol == arcade.key.SPACE:
-            ...
+            self.me.fire()
     
     # تابعي كه تند تند به صورت اتومات اجرا ميشه
     def on_update(self, delta_time: float):
@@ -83,8 +96,9 @@ class Game(arcade.Window):
 
         for enemy in self.enemies:
             for bullet in self.me.bullet_list:
-                self.enemies.remove(enemy)
-                self.me.bullet_list.remove(bullet)
+                if arcade.check_for_collision(enemy,bullet):
+                    self.enemies.remove(enemy)
+                    self.me.bullet_list.remove(bullet)
 
         self.me.move()
 
@@ -100,7 +114,7 @@ class Game(arcade.Window):
 
         if random.randint(1,100) == 5:
             self.new_enemy = Enemy(self.width,self.height)
-            self.enemy.append(self.new_enemy)
+            self.enemies.append(self.new_enemy)
 
 
 window = Game()
