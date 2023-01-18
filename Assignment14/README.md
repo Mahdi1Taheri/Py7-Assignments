@@ -7,7 +7,7 @@ Enemies attack you from above and you have to destroy them by shooting them, and
 Currently, the ship only moves left and right.
 In the lower left corner, the number of your lives and your score will be displayed.
 Every enemy that comes out from below (passes your planet) will reduce your life. And destroying each enemy will add one point to your score.
-!(GameOver)[https://freeimage.host/i/gameover.HagJfkv]
+![GameOver](https://freeimage.host/i/gameover.HagJfkv)
 
 ## About Code:
 ### The libraries I used:
