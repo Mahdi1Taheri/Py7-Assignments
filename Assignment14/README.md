@@ -21,7 +21,6 @@ Every enemy that comes out from below (passes your planet) will reduce your life
 ### This game is based on object oriented programming
 In this code we have a main class called **Game** To implement all objects on the game.<br /> 
 a **Spaceship** class for our ship.<br /> 
-[img]
-<br /> a **Bullet** class for bullets that shoots with the ship.<br /> 
+a **Bullet** class for bullets that shoots with the ship.<br /> 
 a  **Enemy** class for enemies for the enemies who attack us.<br /> 
 a **Heart** class for lives.
