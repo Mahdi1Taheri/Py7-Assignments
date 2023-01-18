@@ -19,9 +19,9 @@ Every enemy that comes out from below (passes your planet) will reduce your life
 * For making the game(GUI &...)
 `import arcade`
 ### This game is based on object oriented programming
-In this code we have a main class called **Game** To implement all objects on the game.\n
-a **Spaceship** class for our ship.\n
+In this code we have a main class called **Game** To implement all objects on the game.<br /> 
+a **Spaceship** class for our ship.<br /> 
 [img]
-a **Bullet** class for bullets that shoots with the ship.\n
-a  **Enemy** class for enemies for the enemies who attack us.\n
+a **Bullet** class for bullets that shoots with the ship.<br /> 
+a  **Enemy** class for enemies for the enemies who attack us.<br /> 
 a **Heart** class for lives.
