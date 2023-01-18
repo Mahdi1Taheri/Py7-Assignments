@@ -10,19 +10,18 @@ Every enemy that comes out from below (passes your planet) will reduce your life
 
 ## About Code:
 ### The libraries I used:
-`import random`
 
 * For random location of enemies
-`import time`
+`import random`
 
 * For each enemy to enter after three seconds
-`import arcade`
-
+`import time`
 * For making the game(GUI &...)
+`import arcade`
 ### This game is based on object oriented programming
-In this code we have a main class called **Game** To implement all objects on the game.
-a **Spaceship** class for our ship.
+In this code we have a main class called **Game** To implement all objects on the game.\n
+a **Spaceship** class for our ship.\n
 [img]
-a **Bullet** class for bullets that shoots with the ship.
-a  **Enemy** class for enemies for the enemies who attack us.
+a **Bullet** class for bullets that shoots with the ship.\n
+a  **Enemy** class for enemies for the enemies who attack us.\n
 a **Heart** class for lives.
