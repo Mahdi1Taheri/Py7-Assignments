@@ -3,6 +3,6 @@ This is a calculator that writed in python <br />
 And it can calculate the four basic operations as well as operators such as sine and cosine.<br /> 
 There is also a clean button at the top to clear the text box.
 
-![screenshot](https://postimg.cc/mhDRvnkh)
+[screenshot](https://postimg.cc/mhDRvnkh)
 
 this calculator will be update!
