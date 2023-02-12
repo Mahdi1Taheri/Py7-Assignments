@@ -7,5 +7,5 @@ Tic-Toc-Toe is a two-player game that you can play in two modes: player vs. play
 
 # Calculator with Grid layout.
 
-this is a Responsive calculator
+this is a Responsive calculator <br />
 ![s1](https://i.postimg.cc/RZy84Nnm/s1.png)
