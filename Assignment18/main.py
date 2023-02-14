@@ -97,7 +97,7 @@ def clear():
 
 app = QApplication([])
 loader = QUiLoader()
-main_window = loader.load("Assignment17/MainWin.ui")
+main_window = loader.load("Assignment18/MainWin.ui")
 
 main_window.btn_equal1.clicked.connect(result)
 main_window.btn_sub.clicked.connect(sub)
