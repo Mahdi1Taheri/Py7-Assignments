@@ -10,6 +10,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui =  Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setFixedSize(560,453)
         self.ui.btn_download.clicked.connect(self.download)
     
     def download(self):
