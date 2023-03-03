@@ -12,6 +12,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self) 
+        self.setFixedSize(479,409)
         self.letters = string.ascii_lowercase
         self.upper = string.ascii_uppercase
         self.digits = string.digits
