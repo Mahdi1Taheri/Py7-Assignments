@@ -9,36 +9,30 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self) 
-        self.setWindowTitle('Palam Poloosh Pelish')
-        self.ui.move1.clicked.connect(self.play_game())
-        self.ui.move2.clicked.connect(self.play_game())
+        self.setWindowTitle('Palam Pulum Pilish')
+        self.ui.move1.clicked.connect(self.play_game)
+        self.ui.move2.clicked.connect(self.play_game)
 
     def play_game(self):
-        
-        # define choices for the game
         choices = ['✋', '🤚']
-         
-        # randomly choose for computer 1 and computer 2
         comp1_choice = random.choice(choices)
         comp2_choice = random.choice(choices)
-
         self.ui.p1.setText(comp1_choice)
         self.ui.p2.setText(comp2_choice)
-
-        # determine the winner based on the rules of the game
+        
         if comp1_choice == comp2_choice:
-            result_str = 'Tie!'
+            result_tie = 'Tie!'
+            self.ui.lable_win.setText(result_tie)
         elif (comp1_choice == '✋' and comp2_choice == '🤚') or \
             (comp1_choice == '🤚' and comp2_choice == '✋'):
-            result_str = 'Comp 1 wins!'
+            result_win1 = 'Comp 1 wins!'
+            self.ui.lable_win.setText(result_win1)
         else:
-            result_str = 'Comp 2 wins!'
+            result_win2 = 'Comp 2 wins!'
+            self.ui.lable_win.setText(result_win2)
   
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     game_window = MainWindow()
     game_window.show()
     sys.exit(app.exec_())
-
-
-    
