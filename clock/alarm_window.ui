@@ -17,7 +17,7 @@
    <string notr="true">background-color: rgb(67, 67, 67);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="btn_add_alarm">
+   <widget class="QPushButton" name="btn_add_alarm1">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -117,7 +117,7 @@ QLineEdit:focus{
      <string>Add Alarm</string>
     </property>
    </widget>
-   <widget class="QTimeEdit" name="time_edit">
+   <widget class="QLineEdit" name="alarm_time">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -129,7 +129,7 @@ QLineEdit:focus{
     <property name="font">
      <font>
       <family>Titillium</family>
-      <pointsize>15</pointsize>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -150,6 +150,12 @@ QLineEdit:focus{
 	background-color: rgb(84, 84, 84);
 	
 }</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter Time...</string>
     </property>
    </widget>
   </widget>

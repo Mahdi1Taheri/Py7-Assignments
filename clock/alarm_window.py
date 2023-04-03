@@ -16,8 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QStatusBar, QTimeEdit,
-    QWidget)
+    QPushButton, QSizePolicy, QStatusBar, QWidget)
 
 class Ui_OtherWindow(object):
     def setupUi(self, OtherWindow):
@@ -27,15 +26,15 @@ class Ui_OtherWindow(object):
         OtherWindow.setStyleSheet(u"background-color: rgb(67, 67, 67);")
         self.centralwidget = QWidget(OtherWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.btn_add_alarm = QPushButton(self.centralwidget)
-        self.btn_add_alarm.setObjectName(u"btn_add_alarm")
-        self.btn_add_alarm.setGeometry(QRect(150, 130, 171, 41))
+        self.btn_add_alarm1 = QPushButton(self.centralwidget)
+        self.btn_add_alarm1.setObjectName(u"btn_add_alarm1")
+        self.btn_add_alarm1.setGeometry(QRect(150, 130, 171, 41))
         font = QFont()
         font.setBold(False)
         font.setUnderline(False)
         font.setStrikeOut(False)
-        self.btn_add_alarm.setFont(font)
-        self.btn_add_alarm.setStyleSheet(u"QPushButton {\n"
+        self.btn_add_alarm1.setFont(font)
+        self.btn_add_alarm1.setStyleSheet(u"QPushButton {\n"
 " 	background-color: rgb(26, 200, 81);\n"
 "	border: none;\n"
 "	color: white;\n"
@@ -81,14 +80,11 @@ class Ui_OtherWindow(object):
         font2.setPointSize(20)
         self.label.setFont(font2)
         self.label.setStyleSheet(u"color:rgb(175, 175, 175)")
-        self.time_edit = QTimeEdit(self.centralwidget)
-        self.time_edit.setObjectName(u"time_edit")
-        self.time_edit.setGeometry(QRect(270, 80, 171, 41))
-        font3 = QFont()
-        font3.setFamilies([u"Titillium"])
-        font3.setPointSize(15)
-        self.time_edit.setFont(font3)
-        self.time_edit.setStyleSheet(u"QLineEdit{\n"
+        self.alarm_time = QLineEdit(self.centralwidget)
+        self.alarm_time.setObjectName(u"alarm_time")
+        self.alarm_time.setGeometry(QRect(270, 80, 171, 41))
+        self.alarm_time.setFont(font1)
+        self.alarm_time.setStyleSheet(u"QLineEdit{\n"
 "	border: 2px solid rgb(37,39,48);\n"
 "	border-radius: 20px;\n"
 "	color: #FFF;\n"
@@ -117,9 +113,11 @@ class Ui_OtherWindow(object):
 
     def retranslateUi(self, OtherWindow):
         OtherWindow.setWindowTitle(QCoreApplication.translate("OtherWindow", u"MainWindow", None))
-        self.btn_add_alarm.setText(QCoreApplication.translate("OtherWindow", u"Add", None))
+        self.btn_add_alarm1.setText(QCoreApplication.translate("OtherWindow", u"Add", None))
         self.alarm_name.setText("")
         self.alarm_name.setPlaceholderText(QCoreApplication.translate("OtherWindow", u"Enter alarm name...", None))
         self.label.setText(QCoreApplication.translate("OtherWindow", u"Add Alarm", None))
+        self.alarm_time.setText("")
+        self.alarm_time.setPlaceholderText(QCoreApplication.translate("OtherWindow", u"Enter Time...", None))
     # retranslateUi
 
