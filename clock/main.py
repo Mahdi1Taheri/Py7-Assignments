@@ -70,7 +70,7 @@ class MainWindow(QMainWindow):
         self.time = self.ui2.alarm_time.text()
         self.mcursor.execute(f'INSERT INTO alarm(name,time) VALUES("{self.name}","{self.time}")')
         self.con.commit()
-        self.window2.close()
+#         self.window2.close()
         
     # new window for add alarms
     def alarm_window(self):
