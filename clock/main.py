@@ -1,5 +1,6 @@
 import sys
 import sqlite3
+from functools import partial
 from datetime import datetime
 from win10toast import ToastNotifier
 from PySide6.QtWidgets import *
@@ -20,7 +21,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()  
         self.ui.setupUi(self)
-        self.con = sqlite3.connect('alarm .db')
+        self.con = sqlite3.connect('alarm.db')
         self.mcursor = self.con.cursor()
         self.window2 = QMainWindow()
         self.ui2 = Ui_OtherWindow()
@@ -50,8 +51,8 @@ class MainWindow(QMainWindow):
 
         # Alarm section
         self.thread_alarm = AlarmThread()
-        self.ui.btn_add.clicked.connect(self.alarm_window)
-        self.ui2.btn_add_alarm1.clicked.connect(self.add_alarm)
+        self.ui.btn_add.clicked.connect(self.add_alarm)
+         
         self.thread_alarm.start()
         
         # WorldClock section
@@ -66,18 +67,54 @@ class MainWindow(QMainWindow):
 
     # add alarms to database
     def add_alarm(self):
-        self.name = self.ui2.alarm_name.text()
-        self.time = self.ui2.alarm_time.text()
-        self.mcursor.execute(f'INSERT INTO alarm(name,time) VALUES("{self.name}","{self.time}")')
+        self.name = self.ui.alarm_name.text()
+        self.hour = self.ui.alarm_hour.text()
+        self.minute = self.ui.alarm_minute.text()
+        self.mcursor.execute(f'INSERT INTO alarm(name,hour,minute) VALUES("{self.name}","{self.hour}","{self.minute}")')
         self.con.commit()
-#         self.window2.close()
-        
+        self.show_alarm()
+        self.ui.alarm_name.setText("")
+        self.ui.alarm_hour.setText("")
+        self.ui.alarm_minute.setText("")
+
+    def show_alarm(self):
+        for i in reversed(range(self.ui.gridLayout.count())): 
+            self.ui.gridLayout.itemAt(i).widget().setParent(None)
+        alarms = self.db.get_alarms()
+        for i in range(len(alarms)):
+            lable = QLineEdit()
+            lable.setStyleSheet("QLineEdit{ font-family: Titillium;font-size:15; border: 2px solid rgb(37,39,48);border-radius: 20px;color: #FFF;padding: 0 20px 0 20px;background-color: rgb(34,36,44)}\
+                QLineEdit:hover{ border: 2px solid rgb(48,50,62);}\
+                QLineEdit:focus{border: 2px solid rgb(24, 200, 121);background-color: rgb(84, 84, 84);}")
+            # checkbox = QCheckBox()
+            # checkbox.setStyleSheet("QCheckBox::indicator{ width: 25; height: 25;}")
+            remove_btn = QPushButton()
+            remove_btn.setStyleSheet("QPushButton { background-color: rgb(255, 151, 23);\
+                                        border: none; color: white; padding: 5px 15px; text-align: center;\
+                                        text-decoration: none; display: inline-block; font-size: 10px; border-radius: 7px;\
+                                        }\
+                                        QPushButton:hover{background-color: #c57412;}\
+                                        QPushButton:pressed{background-color: rgb(67, 133, 200);}")
+            lable.setText(f"{str(alarms[i][1])} | {str(alarms[i][2])}")
+            lable.setReadOnly(True)
+            # checkbox.setText("")
+            # if alarms[i][4] == 0:
+            #     new_checkbox.setChecked(True)
+            remove_btn.setText("Del")
+            self.ui.gridLayout.addWidget(lable, i,0)
+            # self.ui.gridLayout.addWidget(checkbox, i,1)
+            self.ui.gridLayout.addWidget(remove_btn, i,2)
+            # checkbox.clicked.connect(partial(self.is_active, alarms[i][0], alarms[i][4]))
+            remove_btn.clicked.connect(partial(self.db.remove_alarm, alarms[i][0]))
+    
+    
+ 
     # new window for add alarms
-    def alarm_window(self):
-        self.window2 = QMainWindow()
-        self.ui2 = Ui_OtherWindow()
-        self.ui2.setupUi(self.window2)
-        self.window2.show()
+    # def alarm_window(self):
+    #     self.window2 = QMainWindow()
+    #     self.ui2 = Ui_OtherWindow()
+    #     self.ui2.setupUi(self.window2)
+    #     self.window2.show()
 
     def show_worldclock(self):
         self.thread_worldclock.de_time = self.thread_worldclock.teh_time.sub(MyTime(2,30,0))

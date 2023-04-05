@@ -26,7 +26,13 @@ class MyTime:
         self.fix()
         result = MyTime(h_new,m_new,s_new)
         return result
-
+    
+    def same_time(self, other):
+        if self.hour == other.hour and self.min == other.min:
+            return True
+        else:
+            return False
+        
     def fix(self):
         while int(self.second) >= 60:
             self.second -= 60
@@ -34,7 +40,7 @@ class MyTime:
 
         while int(self.minute) >= 60:
             self.minute = int(self.minute) - 60
-            self.hour += 1
+            self.hour = int(self.hour) + 1
 
         while int(self.hour) >= 24:
             self.hour = int(self.hour) - 24

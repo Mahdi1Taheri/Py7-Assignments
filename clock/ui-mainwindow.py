@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QStatusBar, QTabWidget, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
+    QMainWindow, QPushButton, QSizePolicy, QStatusBar,
+    QTabWidget, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setGeometry(QRect(10, 10, 591, 471))
+        self.tabWidget.setGeometry(QRect(10, 0, 591, 471))
         font = QFont()
         font.setFamilies([u"Titillium"])
         font.setPointSize(11)
@@ -282,7 +282,7 @@ class Ui_MainWindow(object):
         self.tab_2.setObjectName(u"tab_2")
         self.btn_add = QPushButton(self.tab_2)
         self.btn_add.setObjectName(u"btn_add")
-        self.btn_add.setGeometry(QRect(80, 370, 211, 41))
+        self.btn_add.setGeometry(QRect(230, 370, 161, 41))
         font4 = QFont()
         font4.setBold(False)
         font4.setUnderline(False)
@@ -326,11 +326,11 @@ class Ui_MainWindow(object):
 "	background-color: rgb(84, 84, 84);\n"
 "	\n"
 "}")
-        self.alarm_hour = QLineEdit(self.tab_2)
-        self.alarm_hour.setObjectName(u"alarm_hour")
-        self.alarm_hour.setGeometry(QRect(360, 310, 221, 51))
-        self.alarm_hour.setFont(font5)
-        self.alarm_hour.setStyleSheet(u"QLineEdit{\n"
+        self.alarm_time = QLineEdit(self.tab_2)
+        self.alarm_time.setObjectName(u"alarm_time")
+        self.alarm_time.setGeometry(QRect(360, 310, 221, 51))
+        self.alarm_time.setFont(font5)
+        self.alarm_time.setStyleSheet(u"QLineEdit{\n"
 "	border: 2px solid rgb(37,39,48);\n"
 "	border-radius: 20px;\n"
 "	color: #FFF;\n"
@@ -347,33 +347,12 @@ class Ui_MainWindow(object):
 "	background-color: rgb(84, 84, 84);\n"
 "	\n"
 "}")
-        self.gridLayoutWidget = QWidget(self.tab_2)
-        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(9, 9, 571, 291))
-        self.gridLayout = QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.alarm_minute = QLineEdit(self.tab_2)
-        self.alarm_minute.setObjectName(u"alarm_minute")
-        self.alarm_minute.setGeometry(QRect(360, 370, 221, 41))
-        self.alarm_minute.setFont(font5)
-        self.alarm_minute.setStyleSheet(u"QLineEdit{\n"
-"	border: 2px solid rgb(37,39,48);\n"
-"	border-radius: 20px;\n"
-"	color: #FFF;\n"
-"	padding: 0 20px 0 20px;\n"
-"	background-color: rgb(34,36,44)\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"	border: 2px solid rgb(48,50,62);\n"
-"}\n"
-"\n"
-"QLineEdit:focus{\n"
-"	border: 2px solid rgb(24, 200, 121);\n"
-"	background-color: rgb(84, 84, 84);\n"
-"	\n"
-"}")
+        self.verticalLayoutWidget = QWidget(self.tab_2)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(10, 9, 571, 291))
+        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QWidget()
         self.tab_3.setObjectName(u"tab_3")
@@ -456,10 +435,8 @@ class Ui_MainWindow(object):
         self.btn_add.setText(QCoreApplication.translate("MainWindow", u"Add", None))
         self.alarm_name.setText("")
         self.alarm_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter alarm name...", None))
-        self.alarm_hour.setText("")
-        self.alarm_hour.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter Hour...", None))
-        self.alarm_minute.setText("")
-        self.alarm_minute.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter Minute...", None))
+        self.alarm_time.setText("")
+        self.alarm_time.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter Time...", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Alarm", None))
         self.teh_lb.setText("")
         self.de_lb.setText("")

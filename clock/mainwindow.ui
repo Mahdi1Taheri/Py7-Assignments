@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>452</height>
+    <width>612</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +22,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>521</width>
-      <height>411</height>
+      <width>591</width>
+      <height>471</height>
      </rect>
     </property>
     <property name="font">
@@ -136,9 +136,9 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
      <widget class="QPushButton" name="btn_start_stopwatch">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>200</y>
-        <width>161</width>
+        <x>40</x>
+        <y>230</y>
+        <width>171</width>
         <height>41</height>
        </rect>
       </property>
@@ -172,8 +172,8 @@ QPushButton:hover{
      <widget class="QPushButton" name="btn_stop_stopwatch">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>200</y>
+        <x>220</x>
+        <y>230</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -208,8 +208,8 @@ QPushButton:hover{
      <widget class="QLabel" name="lb_time">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>80</y>
+        <x>250</x>
+        <y>130</y>
         <width>211</width>
         <height>61</height>
        </rect>
@@ -230,8 +230,8 @@ QPushButton:hover{
      <widget class="QPushButton" name="btn_reset_stopwatch">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>200</y>
+        <x>390</x>
+        <y>230</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -271,7 +271,7 @@ QPushButton:hover{
      <widget class="QLineEdit" name="le_hour">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>130</x>
         <y>80</y>
         <width>91</width>
         <height>91</height>
@@ -296,7 +296,7 @@ QLineEdit {
      <widget class="QLineEdit" name="le_minute">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>250</x>
         <y>80</y>
         <width>91</width>
         <height>91</height>
@@ -321,7 +321,7 @@ QLineEdit {
      <widget class="QLineEdit" name="le_second">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>370</x>
         <y>80</y>
         <width>91</width>
         <height>91</height>
@@ -346,7 +346,7 @@ QLineEdit {
      <widget class="QPushButton" name="btn_timer_start">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>50</x>
         <y>250</y>
         <width>161</width>
         <height>41</height>
@@ -375,7 +375,7 @@ QPushButton:hover{
      <widget class="QPushButton" name="btn_timer_stop">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>220</x>
         <y>250</y>
         <width>141</width>
         <height>41</height>
@@ -404,7 +404,7 @@ QPushButton:hover{
      <widget class="QPushButton" name="btn_timer_reset">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>370</x>
         <y>250</y>
         <width>161</width>
         <height>41</height>
@@ -438,9 +438,9 @@ QPushButton:hover{
      <widget class="QPushButton" name="btn_add">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>310</y>
-        <width>171</width>
+        <x>80</x>
+        <y>370</y>
+        <width>211</width>
         <height>41</height>
        </rect>
       </property>
@@ -472,16 +472,139 @@ QPushButton:hover{
        <string>Add</string>
       </property>
      </widget>
-     <widget class="QWidget" name="verticalLayoutWidget">
+     <widget class="QLineEdit" name="alarm_name">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>310</y>
+        <width>341</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Titillium</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding: 0 20px 0 20px;
+	background-color: rgb(34,36,44)
+}
+
+QLineEdit:hover{
+	border: 2px solid rgb(48,50,62);
+}
+
+QLineEdit:focus{
+	border: 2px solid rgb(24, 200, 121);
+	background-color: rgb(84, 84, 84);
+	
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Enter alarm name...</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="alarm_hour">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>310</y>
+        <width>221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Titillium</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding: 0 20px 0 20px;
+	background-color: rgb(34,36,44)
+}
+
+QLineEdit:hover{
+	border: 2px solid rgb(48,50,62);
+}
+
+QLineEdit:focus{
+	border: 2px solid rgb(24, 200, 121);
+	background-color: rgb(84, 84, 84);
+	
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Enter Hour...</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
         <x>9</x>
-        <y>10</y>
-        <width>501</width>
+        <y>9</y>
+        <width>571</width>
         <height>291</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout"/>
+      <layout class="QGridLayout" name="gridLayout"/>
+     </widget>
+     <widget class="QLineEdit" name="alarm_minute">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>370</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Titillium</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding: 0 20px 0 20px;
+	background-color: rgb(34,36,44)
+}
+
+QLineEdit:hover{
+	border: 2px solid rgb(48,50,62);
+}
+
+QLineEdit:focus{
+	border: 2px solid rgb(24, 200, 121);
+	background-color: rgb(84, 84, 84);
+	
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Enter Minute...</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
@@ -493,7 +616,7 @@ QPushButton:hover{
        <rect>
         <x>20</x>
         <y>40</y>
-        <width>481</width>
+        <width>551</width>
         <height>81</height>
        </rect>
       </property>
@@ -536,7 +659,7 @@ QPushButton:hover{
        <rect>
         <x>20</x>
         <y>150</y>
-        <width>481</width>
+        <width>551</width>
         <height>81</height>
        </rect>
       </property>
@@ -579,7 +702,7 @@ QPushButton:hover{
        <rect>
         <x>20</x>
         <y>260</y>
-        <width>481</width>
+        <width>551</width>
         <height>81</height>
        </rect>
       </property>

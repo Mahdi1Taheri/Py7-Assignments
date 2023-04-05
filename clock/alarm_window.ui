@@ -48,7 +48,12 @@
 }
 QPushButton:hover{
 	background-color:#159f3e;
-}</string>
+}
+QPushButton:pressed{
+	background-color: rgb(67, 133, 200);
+}
+
+</string>
     </property>
     <property name="text">
      <string>Add</string>
