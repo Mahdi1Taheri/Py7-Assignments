@@ -78,8 +78,6 @@ class MainWindow(QMainWindow):
         self.ui.alarm_minute.setText("")
 
     def show_alarm(self):
-        for i in reversed(range(self.ui.gridLayout.count())): 
-            self.ui.gridLayout.itemAt(i).widget().setParent(None)
         alarms = self.db.get_alarms()
         for i in range(len(alarms)):
             lable = QLineEdit()
