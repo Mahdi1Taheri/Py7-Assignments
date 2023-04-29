@@ -5,6 +5,8 @@ Capabilities:
 ```
 + Ability to add tasks
 + Add description
++ Delete tasks(has bug)
++ Done tasks
 + Set priority
 + Set the date and time
 + Add to database
